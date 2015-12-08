@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- this is for the D3 visualization 
+  <script src="http://d3js.org/d3.v3.min.js"></script>-->
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <!-- this makes Bootstrap JS Tab work -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified CSS
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+ -->
+  <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css" />
+  <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+  <script data-require="bootstrap@*" data-semver="3.3.5" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+  <script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+  <script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-D3.css" />
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AdamActual.io</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Link<span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown                                                                         <span class="caret"></span>
+                </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown                                                                         <span class="caret"></span>
+                </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <!-- <span>
+        <i class="glyphicon glyphicon-search"></i>
+      </span>
+    <input type="search" />
+-->
+    <h1>2005 Honda Civic Fuel Data Log</h1>
+  </header>
+
+  <div class="">
+    <!--genericStyle-->
+    <div class="container">
+      <h5></h5>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#project">Project</a></li>
+        <li><a data-toggle="tab" href="#resources">Resources</a></li>
+        <li><a data-toggle="tab" href="#toDo">To Do</a></li>
+        <li><a data-toggle="tab" href="#displayAngular">Angular Data Display</a></li>
+        <li><a data-toggle="tab" href="#displayD3">D3 Data Visualization</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="project" class="tab-pane fade in active">
+          <h3>Objective</h3> Display the contents of a JSON file using AngularJS.
+          <br> Provide data visualization of the JSON data using D3.
+          <h3>Data</h3> Fuel log for 2005 Honda Civic, VIN: 2HGES16445H500604
+        </div>
+        <div id="resources" class="tab-pane fade">
+          <h3>Resources</h3>
+          <section>
+            <article>
+              <ul>
+                <li><a href="http://plnkr.co/edit/0FiNIX?p=info"> AngularJS User Registration and Login Example</a></li>
+                <li><a href="http://code.ciphertrick.com/2015/06/01/search-sort-and-pagination-ngrepeat-angularjs/">Search Sort and Pagination in ng-repeat AngularJS</a></li>
+                <li><a href="https://scotch.io/tutorials/sort-and-filter-a-table-using-angular">Sort and Filter a Table Using Angular</a></li>
+                <li><a href="http://www.w3schools.com/bootstrap/bootstrap_ref_js_tab.asp">W3C Schools: BootStrap JS Tab</a></li>
+                <li><a href="http://bl.ocks.org/d3noob/ccdcb7673cdb3a796e13">bl.ocks.org : rotated x-axis labels</a></li>
+                <li><a href="https://github.com/mbostock/d3/wiki/Time-Formatting">GitHub Time Formating D3 </a></li>
+                <li><a href="https://github.com/mbostock/d3/wiki/Gallery">GitHub mbostock/d3 Gallery</a></li>
+              </ul>
+            </article>
+          </section>
+        </div>
+
+
+        <div id="displayAngular" class="tab-pane fade">
+          <h3>Angular Data Binding</h3>
+          <div ng-app="mpgApp" ng-controller="mpgDataCtrl">
+            <p id="fuelLogCount">Fuel Log Entries: {{mpgData.length}}</p>
+            <!-- ANGULAR SEARCH -->
+            <form class="form-inline">
+              <div class="form-group">
+                <label>Search</label>
+                <input type="text" ng-model="search" class="form-control" placeholder="Search">
+              </div>
+              <br>
+            </form>
+            <!-- END ANGULAR SEARCH -->
+
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th ng-click="sort('Date')">Date
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Date'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  </th>
+                  <th ng-click="sort('Miles')">Mileage
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Miles'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  </th>
+                  <th ng-click="sort('Gallons')">Gallons
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Gallons'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  </th>
+                  <th ng-click="sort('Cost')">Cost
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Cost'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  </th>
+                  <th ng-click="sort('MPG')">MPG
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='MPG'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  </th>
+                </tr>
+              </thead>
+
+              <!--<tr ng-repeat="x in mpgData|orderBy:sortKey:reverse|filter:search">-->
+              <tr dir-paginate="x in mpgData|orderBy:sortKey:reverse|filter:search|itemsPerPage:15">
+                <td>{{ x.Date }}</td>
+                <td>{{ x.Miles }}</td>
+                <td>{{ x.Gallons }}</td>
+                <td>{{ x.Cost | currency }}</td>
+                <td>{{ x.MPG }}</td>
+              </tr>
+            </table>
+
+            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+            </dir-pagination-controls>
+          </div>
+          <!-- -->
+        </div>
+
+
+        <div id="displayD3" class="tab-pane fade">
+          <h3>D3 Data Visualization</h3><!-- D3 data visualization -->
+          <div id="myVertBarChart"></div>
+        </div>
+
+
+        <div id="toDo" class="tab-pane fade">
+          <h3>To Do</h3>
+          <section>
+            <article>
+                <ul>
+                  <li>Display the contents of the fuel log using Angular.js </li>
+                  <ul>
+                    <li><em class="emComplete">COMPLETE :</em> Sort</li>
+                    <ul>
+                      <li><em class="emToDo">TO DO :</em> Ascending/Descending sort order
+                        <br>
+                        <a href="http://stackoverflow.com/questions/32080669/angularjs-orderby-date">Stack - define a customizer function</a>
+                      </li>
+                    </ul>
+                    <li><em class="emComplete">COMPLETE :</em> Search</li>
+                    <li><em class="emComplete">COMPLETE :</em> Pagination</li>
+                  </ul>
+                  <li><em class="emToDo">TO DO :</em> Convert from Table to Div
+                    <ul>
+                      <li><a href="http://code.ciphertrick.com/2015/06/01/search-sort-and-pagination-ngrepeat-angularjs/">Possible example</a></li>
+
+                      <li><a href="http://stackoverflow.com/questions/19968099/get-and-update-json-using-angular-js">Possible example</a></li>
+                    </ul>
+                  </li>
+                  <li><em class="emToDo">TO DO :</em> CRUD operation on JSON file
+                    <ul>
+                      <li><a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/">
+          Create a REST service using ASP.NET Web API and SQL Database in Azure App Service</a></li>
+                      <li><a href="http://plnkr.co/edit/jBj53K?p=info">AngularJS CRUD plnkr</a></li>
+                      <li><a href="http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/">REST API using Node.js</a></li>
+                      <li><a href="http://plnkr.co/edit/d6yDka?p=preview">Restangular plnkr</a></li>
+                      <li><a href="http://mrbool.com/creating-a-crud-form-with-html5-local-storage-and-json/26719">CRUD form with HTML5</a></li>
+                      <li><a href="http://embed.plnkr.co/lEObaH/preview">Contact Manager plnkr</a></li>
+                      <li><a href="http://willmendesneto.github.io/2014/10/28/creating-a-crud-in-a-single-angular-controller/">CRUD in AngularJS Controller</a></li>
+                      <li><a href="http://stackoverflow.com/questions/17376890/angular-js-full-example-of-get-post-delete-put-client-for-a-rest-crud-backend">Restangular Stackoverflow</a></li>
+                      <li><a href="http://www.newtonsoft.com/json/help/html/modifyjson.htm">Modifying JSON **</a></li>
+                    </ul>
+                  </li>
+                  <li><em class="emComplete">COMPLETE :</em> D3 Chart(s)
+                    <ul>
+                      <li><a href="http://www.frankcleary.com/making-an-interactive-histogram-in-d3-js/">Possible Example</a></li>
+                      <li><a href="http://eeyore.ucdavis.edu/stat242/D3/D3.html">UC Davis Example</a></li>
+                      <li><em class="emToDo">TO DO :</em> Histogram of MPG Bell Curve</li>
+                    </ul>
+                  </li>
+                  <li><em class="emToDo">TO DO :</em> Implement Node.js
+                    <ul>
+                      <li><a herf="https://www.godaddy.com/help/how-to-install-nodejs-on-centos-12159">GoDaddy + Node</a></li>
+                      <li>
+                        <a herf="http://wiki.gandi.net/en/simple/instance/nodejs">Gandi + Node</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><em class="emToDo">TO DO :</em> Implement HTML Template Concept
+                    <ul>
+                      <li><a herf="http://stackoverflow.com/questions/16132341/best-practice-to-create-a-template-in-html">Best practice to create a template in HTML</a></li>
+                      <li>
+                        <a herf="#">Empty Place Holder</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+            </article>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+  </div>
+  <!-- END genericStyle-->
+
+  <!-- -->
+  <script src="mpg-D3.js"></script>
+  <script src="mpgApp.js"></script>
+  <script src="mpgController.js"></script>
+  <script src="dirPagination.js"></script>
+
+</body>
+
+</html>

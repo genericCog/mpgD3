@@ -1,0 +1,136 @@
+/* 
+Color Codes
+#a1a7b4 light pink
+#5e6a83 graphite
+*/
+
+body {
+  padding-top: 0px;
+}
+em {
+    font-style: oblique;font-weight: bold;
+}
+
+em.emComplete{color:green;font-weight: 500;}
+em.emToDo{color:red;}
+
+aside {
+  float: left;
+  width: 155px;
+  height: 200px;
+  padding-right: 25px;
+  margin-top: 25px;
+}
+
+.sort-icon {
+  font-size: 9px;
+  margin-left: 5px;
+}
+
+th {
+  cursor: pointer;
+}
+
+
+/*#region header */
+
+header {
+  padding: 1px;
+  margin: 1px;
+  background-color: #af93b3;
+  /*medium purple*/
+  color: #4e4051;
+  /*eggplant*/
+}
+
+
+/*#endregion header */
+
+
+/*#region genericStyle*/
+
+div.genericStyle {
+  margin:10px 10px 10px 20px;
+  padding: 10px;
+  /*border-style: solid;
+    border-width: 1px;*/
+}
+
+*[hidden] {
+  display: none;/* If a browser does not support the 'hidden' attribute */
+}
+
+/*#endregion genericStyle*/
+
+
+/*#region Table*/
+
+table,
+th,
+td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+
+/*endregion Table*/
+
+
+/*#region LineChart*/
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+
+/*endregion LineChart*/
+
+
+/*#region BarChart*/
+
+.chart {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+
+/*endregion BarChart*/
